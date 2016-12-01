@@ -24,6 +24,6 @@ public class PokemonFrame extends JFrame
 		this.setTitle("Pokemon");
 		this.setSize(new Dimension(900,600));
 		this.setResizable(false);
-		this.setVisible(true);;
+		this.setVisible(true);
 	}
 }
