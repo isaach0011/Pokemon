@@ -6,7 +6,6 @@ import java.awt.Dimension;
 
 public class PokemonFrame extends JFrame
 {
-
 	private PokemonController baseController;
 	private PokemonPanel basePanel;
 	
