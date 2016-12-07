@@ -150,7 +150,20 @@ public class PokemonPanel extends JPanel
 	
 	public boolean isValidDouble(String input)
 	{
-		return false;
+		boolean isValid = false;
+		
+		try
+		{
+			double successful = Double.parseDouble(input);
+			isValid = true;
+		}
+		catch (NumberFormatException userTypedSomething)
+		{
+			JOptionPane.showMessageDialog(this,  "Type in a valid double for speed");
+			speedField.setText("");
+		}
+		
+		return isValid;
 	}
 	
 	public boolean isValidInteger(String input)
