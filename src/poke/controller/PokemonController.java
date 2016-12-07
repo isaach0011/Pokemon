@@ -18,6 +18,6 @@ public class PokemonController
 	
 	public void start()
 	{
-		
+
 	}
 }
