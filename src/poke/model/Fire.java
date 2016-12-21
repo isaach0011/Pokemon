@@ -1,5 +1,6 @@
 package poke.model;
 
-public interface Fire {
-
+public interface Fire 
+{
+	
 }

@@ -1,13 +1,11 @@
 package poke.view;
 
 import javax.swing.*;
-
 import poke.controller.PokemonController;
-
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+
 
 public class PokemonPanel extends JPanel
 {
@@ -135,17 +133,114 @@ public class PokemonPanel extends JPanel
 	
 	public void setupListeners()
 	{
+		pokedexSelector.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				
+			}
+		});
 		
+		updateButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent selection)
+			{
+				
+			}
+		});
+		
+		this.addMouseListener(new MouseListener()
+
+		{
+
+			public void mouseEntered(MouseEvent entered)
+			{
+//				JOptionPane.showMessageDialog(baseController.getBaseFrame(), "The mouse entered the program.");
+			}
+
+			public void mouseReleased(MouseEvent released)
+			{
+//				System.out.println("released");
+			}
+
+			public void mouseExited(MouseEvent exited)
+			{
+//				JOptionPane.showMessageDialog(baseController.getBaseFrame(), "The mouse exited the program.");
+			}
+
+			public void mouseClicked(MouseEvent clicked)
+			{
+//				System.out.println("clicked");
+			}
+
+			public void mousePressed(MouseEvent pressed)
+			{
+//				System.out.println("pressed");
+			}
+			
+		});
+		
+		this.addMouseMotionListener(new MouseMotionListener()
+		{
+			public void mouseDragged(MouseEvent dragged)
+			{
+				setRandomColor();
+			}			
+
+			public void mouseMoved(MouseEvent moved)
+			{
+//				if((Math.abs(moved.getX() - updateButton.getX()) < 5 ) || (Math.abs(moved.getY() - updateButton.getY()) < 5))
+//				{
+//					updateButton.setLocation(moved.getX() + 10, moved.getY() - 10);
+//				}
+			}
+		});
+	}
+	
+	private void setRandomColor()
+	{
+		int red = (int) (Math.random() * 256);
+		int green = (int) (Math.random() * 256);
+		int blue = (int) (Math.random() * 256);
+		
+		this.setBackground(new Color(red, green, blue));
 	}
 	
 	public void changeColorBasedOnData(String data)
 	{
+		if (data.contains("Fire"))
+		{
+			this.setBackground((Color.RED));
+		}
+		if (data.contains("Water"))
+		{
+			this.setBackground((Color.BLUE));
+		}
+		if (data.contains("Grass"))
+		{
+			this.setBackground((Color.GREEN));
+		}
+		else
+		{
+			this.setBackground((Color.DARK_GRAY));
+		}
 		
+		repaint();
 	}
 	
 	public void changeImageDisplay(String name)
 	{
-		
+		String path = "/poke/view/images/";
+		String defaultName = "quickball";
+		String extension = ".png";
+		try
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + name + extension));
+		}
+		catch (NullPointerException missingFile)
+		{
+			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+		}
 	}
 	
 	public boolean isValidDouble(String input)
