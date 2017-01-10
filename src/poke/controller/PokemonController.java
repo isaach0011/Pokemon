@@ -27,7 +27,12 @@ public class PokemonController
 	
 	private void buildPokedex()
 	{
-		pokedex.add(new Charmander());
+		pokedex.add(new Torkoal());
+		pokedex.add(new Suicune());
+		pokedex.add(new Regigigas());
+		pokedex.add(new Shaymin());
+		pokedex.add(new Volcanion());
+		pokedex.add(new Torkoal("Rock Turtle"));
 	}
 	
 	public String[] buildPokedexText()
